@@ -40,7 +40,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
@@ -834,7 +833,6 @@ main {
 }
 
 /* Consent Modal Layer */
-html.consent-open,
 body.consent-open {
   overflow: hidden;
 }

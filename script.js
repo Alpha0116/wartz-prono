@@ -23,7 +23,6 @@ function showPopup() {
   requestAnimationFrame(() => {
     consentLayer.classList.add("is-visible");
     document.body.classList.add("consent-open");
-    document.documentElement.classList.add("consent-open");
   });
 }
 
@@ -31,7 +30,6 @@ function closePopup() {
   if (!consentLayer) return;
   consentLayer.classList.remove("is-visible");
   document.body.classList.remove("consent-open");
-  document.documentElement.classList.remove("consent-open");
   setTimeout(() => {
     consentLayer.hidden = true;
   }, 350);
