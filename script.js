@@ -17,12 +17,16 @@ function goToTelegram() {
   window.location.href = TG_CHANNEL;
 }
 
+let savedScrollY = 0;
+
 function showPopup() {
   if (!consentLayer) return;
+  savedScrollY = window.scrollY;
   consentLayer.hidden = false;
   requestAnimationFrame(() => {
     consentLayer.classList.add("is-visible");
     document.body.classList.add("consent-open");
+    document.body.style.top = `-${savedScrollY}px`;
   });
 }
 
@@ -30,6 +34,8 @@ function closePopup() {
   if (!consentLayer) return;
   consentLayer.classList.remove("is-visible");
   document.body.classList.remove("consent-open");
+  document.body.style.top = "";
+  window.scrollTo(0, savedScrollY);
   setTimeout(() => {
     consentLayer.hidden = true;
   }, 350);

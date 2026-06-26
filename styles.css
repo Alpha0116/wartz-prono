@@ -835,7 +835,9 @@ main {
 
 /* Consent Modal Layer */
 body.consent-open {
-  /* L'overflow hidden a été retiré pour éviter que la barre de défilement ne disparaisse, ce qui causait un saut de la popup vers la droite */
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
 }
 
 .consent-layer {
