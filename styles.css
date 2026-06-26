@@ -836,7 +836,6 @@ main {
 /* Consent Modal Layer */
 body.consent-open {
   overflow: hidden;
-  touch-action: none;
 }
 
 .consent-layer {
