@@ -23,6 +23,7 @@ function showPopup() {
   requestAnimationFrame(() => {
     consentLayer.classList.add("is-visible");
     document.body.classList.add("consent-open");
+    document.documentElement.classList.add("consent-open");
   });
 }
 
@@ -30,6 +31,7 @@ function closePopup() {
   if (!consentLayer) return;
   consentLayer.classList.remove("is-visible");
   document.body.classList.remove("consent-open");
+  document.documentElement.classList.remove("consent-open");
   setTimeout(() => {
     consentLayer.hidden = true;
   }, 350);
@@ -40,15 +42,7 @@ function initPopup() {
   setTimeout(showPopup, POPUP_DELAY_MS);
 }
 
-// Empêcher le défilement de l'arrière-plan sur mobile
-if (consentLayer) {
-  consentLayer.addEventListener("touchmove", (e) => {
-    // Bloquer le défilement si le toucher n'est pas à l'intérieur de la popup
-    if (!e.target.closest(".consent-popup")) {
-      e.preventDefault();
-    }
-  }, { passive: false });
-}
+// Le bloqueur de touchmove a été retiré pour ne pas bloquer le rafraîchissement de la page (pull-to-refresh)
 
 document.addEventListener("click", (e) => {
   // Liens Telegram -> On va vers Telegram
