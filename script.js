@@ -40,6 +40,16 @@ function initPopup() {
   setTimeout(showPopup, POPUP_DELAY_MS);
 }
 
+// Empêcher le défilement de l'arrière-plan sur mobile
+if (consentLayer) {
+  consentLayer.addEventListener("touchmove", (e) => {
+    // Bloquer le défilement si le toucher n'est pas à l'intérieur de la popup
+    if (!e.target.closest(".consent-popup")) {
+      e.preventDefault();
+    }
+  }, { passive: false });
+}
+
 document.addEventListener("click", (e) => {
   // Liens Telegram -> On va vers Telegram
   if (e.target.closest("[data-redirect-tg]") || (e.target.closest("a[href]") && e.target.closest("a[href]").getAttribute("href").includes("t.me"))) {
