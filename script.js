@@ -17,19 +17,33 @@ function goToTelegram() {
   window.location.href = TG_CHANNEL;
 }
 
+let _scrollY = 0;
+
 function showPopup() {
   if (!consentLayer) return;
+  
+  // Fixer le body sans overflow:hidden
+  _scrollY = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${_scrollY}px`;
+  document.body.style.width = '100%';
+  
   consentLayer.hidden = false;
   requestAnimationFrame(() => {
     consentLayer.classList.add("is-visible");
-    document.body.classList.add("consent-open");
   });
 }
 
 function closePopup() {
   if (!consentLayer) return;
+  
+  // Restaurer le scroll
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  window.scrollTo(0, _scrollY);
+  
   consentLayer.classList.remove("is-visible");
-  document.body.classList.remove("consent-open");
   setTimeout(() => {
     consentLayer.hidden = true;
   }, 350);
