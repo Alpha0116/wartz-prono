@@ -40,6 +40,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -832,7 +833,7 @@ main {
 
 /* Consent Modal Layer */
 body.consent-open {
-  overflow: hidden;
+  /* L'overflow hidden a été retiré pour éviter que la barre de défilement ne disparaisse, ce qui causait un saut de la popup vers la droite */
 }
 
 .consent-layer {
