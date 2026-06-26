@@ -139,10 +139,13 @@ main,
   letter-spacing: 0.02em;
 }
 
-.logo__text small {
+.logo__officiel {
   font-size: 0.7rem;
-  color: var(--text-muted);
-  font-weight: 500;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  margin-top: 0.1rem;
 }
 
 .header__actions {
@@ -1044,8 +1047,9 @@ body.consent-open {
     font-size: 0.8rem;
   }
 
-  .logo__text small {
+  .logo__officiel {
     font-size: 0.55rem;
+    letter-spacing: 0.3em;
   }
 
   .btn--sm {
